@@ -1,5 +1,4 @@
-@ 2G
-
+@@ 2G
 @clear
 @set {site}    = SITE_NAME
 @set {BSC}     = BSC_NAME
