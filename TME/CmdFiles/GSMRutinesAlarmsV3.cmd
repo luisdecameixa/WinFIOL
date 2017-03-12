@@ -54,10 +54,11 @@ exit;
 rxelp:mo=rxotg-{tg[{j}]};
 
 @@ saber si hay transmision/comunicacion
-rxtei:mo=rxocf-{tg[{j}]}; 
+rxtei:mo=rxocf-{tg[{j}]};
+@@rxapp:moty=rxotg;
 @@
 rxcdp:mo=rxotg-{tg[{j}]};
-@iferror then @return
+@@@iferror then @return
 @@@unset {tx}
 @@@unset {ttx}
 @@@grep {tx} {_lines} "^RXOTX-.*"
@@ -121,7 +122,7 @@ rxtcp:mo=rxotg-{tg[{j}]};
     @@ check the frequency
 	@comment CheckFrequency
 	rlcfp:cell={celda[{cellidx}]};
-	@@iferror then goto NEXTCHECKCELDA
+	@iferror then goto NEXTCHECKCELDA
 
 	@@ check cell barred CB=YES
 	@comment CheckCellBarred
