@@ -26,7 +26,7 @@
 
 @log on {site}.Log2G.{BSC}.txt
 @comment [day {date}] [time {time}]
-eaw {BSC};
+eaw {BSC}
 @gosub CHECKTG
 exit;
 
