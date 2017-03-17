@@ -42,3 +42,27 @@ ourpassword
 @set {site} = SITE_NAME 
 @include LTERutinesOSPV2.cmd
 exit
+
+
+
+@@@ Crea BBDD 2G (BSC, Cells) de OSP
+eac_esi_config -nelist | grep '.*B[1-9]' | sort | uniq
+@unset {_line0}
+@size {_lines} {nBSC}
+@FOREACH {_lines} ITEM {BSC[{_CURRIDX}]} {_LINES[{_CURRIDX}]} " " 0
+@set {i} = 1
+@size {_lines} {nBSC}
+@log on OSP2GDB.txt
+@foreach {BSC} @gosub CHECKBSC
+@L-
+@exit
+
+@label CHECKBSC
+@if {i}={nBSC} then return
+eaw {BSC[{i}]}
+rxtcp:moty=rxotg;
+@T 2
+exit;
+@inc {i}
+@return
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
