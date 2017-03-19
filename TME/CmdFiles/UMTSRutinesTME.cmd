@@ -19,6 +19,8 @@
 @trim {IUB}
 @trim {chkrnc}
 
+@log on {site}.Log3G.txt
+
 @if {chkrnc} <> 1 then @goto NORNC
 @@L-
 @unset {_lines}
@@ -28,7 +30,6 @@
 @set {RNC} = {_line1}
 @trim {RNC}
 
-@log on {site}.Log3G.txt
 @comment [day {date}] [time {time}]
 
 @unset {amoserror}
